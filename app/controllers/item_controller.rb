@@ -1,5 +1,5 @@
-class ItemController < ApplicationController
-	layout false
+class ItemController < ApplicationController	
+
 
   def index
   	@items= Item.all 
