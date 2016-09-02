@@ -2,7 +2,7 @@ class ItemController < ApplicationController
 
 
   def index
-  	@items= Item.all 
+  	@items= Item.all
   end
 
   def show
@@ -17,6 +17,7 @@ class ItemController < ApplicationController
   	@item=Item.create(item_params)
   	if @item.save
   		redirect_to  root_path
+      flash[:notice] ="Item created successfully."
   	else
   		render "Oops! create failed, try again"
   	end
@@ -30,6 +31,7 @@ class ItemController < ApplicationController
   	@item=Item.find(params[:id])
   	if @item.update(item_params)
   		redirect_to root_path
+      flash[:notice] ="Item changed successfully."
   	else
   		render "edit"
   	end
@@ -38,6 +40,7 @@ class ItemController < ApplicationController
   	@item=Item.find(params[:id])
   	if @item.destroy
   		redirect_to root_path
+      flash[:notice] ="Item deleted successfully."
   	else
   		render item_show_path(@item)
   	end

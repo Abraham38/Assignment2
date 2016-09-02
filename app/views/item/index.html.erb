@@ -1,11 +1,16 @@
-<div class="items index">
+<% if ! flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
 <h2>List of items</h2>
 
-<table class="listing" summary="Item list">
+<table>
 <tr class="header">
 
-<th>Item</th>
-<th>Action</th>
+<th><b>Item</b></th>
+<th><b>Action</b></th>
 </tr>
 
 <p>
@@ -19,8 +24,6 @@
 <% end %>	
 </p>
 
-
 <b><%= link_to "Create new item", item_new_path %></b>
-
 </table>
-</div>
+

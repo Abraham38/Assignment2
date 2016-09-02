@@ -1,15 +1,20 @@
-<h1><%= @item.name %></h1>
+<% if ! flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
 
-<p>&euro;
-<%= @item.price %>	
-</p>
+<h2><th>Name:</th>
+<%= @item.name %></h2>
+
+<h2><th>Price:</th>
+&euro;<%= @item.price %>	
+</h2>
 
 <p>
-<%= link_to "Edit item here", item_edit_path(@item) %>
+<%= link_to "Edit item", item_edit_path(@item) %>
 </p>
-
-<p><%= link_to "Delete Item", item_delete_path(@item), method: :delete, data: { confirm: "Are you sure you want to delete this item?" } %></p> 
-
+<p><%= link_to "Delete item", item_delete_path(@item), method: :delete, data: { confirm: "Are you sure you want to delete this item?" } %></p> 
 <p>
-<b><%= link_to"Back to the list of all items",root_path %><b>
+<b><%= link_to"Back to full of all items",root_path %><b>
 </p>
