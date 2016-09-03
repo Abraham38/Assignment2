@@ -7,23 +7,27 @@
 <h2>List of items</h2>
 
 <table>
-<tr class="header">
-
-<th><b>Item</b></th>
-<th><b>Action</b></th>
-</tr>
-
-<p>
 <% @items.each do |item| %>
 <tr>
-<td><%= item.name  %></br></td>
+
+
+<td>
+	<ul>
+       <li>
+       <p><%= item.name%>...</p>
+       </li>
+    </ul>
+</td>
+
+
 <td>
 <%= link_to"show",item_show_path(item) %>
 </td>
 </tr>
 <% end %>	
-</p>
 
-<b><%= link_to "Create new item", item_new_path %></b>
 </table>
+
+<b><%= link_to "Create new item ", item_new_path %></b>
+
 
